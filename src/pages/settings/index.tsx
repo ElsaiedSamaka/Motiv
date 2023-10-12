@@ -9,7 +9,7 @@ const Settings = () => {
 Settings.getLayout = (page) => {
   return (
     <RootLayout>
-      <SettingsLayout>{page}</SettingsLayout>;
+      <SettingsLayout>{page}</SettingsLayout>
     </RootLayout>
   );
 };

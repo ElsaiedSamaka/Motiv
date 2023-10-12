@@ -8,7 +8,7 @@ const Cars = () => {
 Cars.getLayout = (page) => {
   return (
     <RootLayout>
-      <DashboardLayout>{page}</DashboardLayout>;
+      <DashboardLayout>{page}</DashboardLayout>
     </RootLayout>
   );
 };

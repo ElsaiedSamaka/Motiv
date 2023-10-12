@@ -11,9 +11,9 @@ const Dashboard = () => {
           content="Next.js 12 + TailwindCSS + ReduxToolKit + RTK Qurey"
         />
       </Head>
-      <section className="dashboard-page p-10">
+      <section className="dashboard-page">
         {/* statitics */}
-        <div className="statics grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="statics grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div className="bg-[#A162F7] rounded-[14px] text-white font-semibold flex flex-col justify-center items-center gap-y-4 p-5 h-40 md:h-64">
             {/* chart icon */}
             <span className="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full bg-[#a66ff0] text-white">
@@ -36,7 +36,7 @@ const Dashboard = () => {
             <div className="bg-blue-400 ">asd</div>
             {/* chart canvas */}
           </div>
-          <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 h-40 md:h-64">
+          <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 ">
             {/* chart icon */}
             <span className="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full bg-[#a66ff0] text-white">
               <svg
@@ -58,7 +58,7 @@ const Dashboard = () => {
             <div className="bg-blue-400 ">asd</div>
             {/* chart canvas */}
           </div>
-          <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 h-40 md:h-64">
+          <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 ">
             {/* chart icon */}
             <span className="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full bg-[#a66ff0] text-white">
               <svg
@@ -80,7 +80,7 @@ const Dashboard = () => {
             <div className="bg-blue-400 ">asd</div>
             {/* chart canvas */}
           </div>
-          <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 h-40 md:h-64">
+          <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 ">
             {/* chart icon */}
             <span className="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full bg-[#a66ff0] text-white">
               <svg
@@ -105,7 +105,7 @@ const Dashboard = () => {
         </div>
         {/* statitics */}
         {/* features */}
-        <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-10 gap-4 mb-8 h-60 font-semibold">
+        <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-10 gap-4 mb-4 h-60 font-semibold">
           <div className="bg-[#FFE0BA]  sm:col-span-full md:col-span-6 rounded-md py-3 px-6">
             left
           </div>
@@ -131,7 +131,7 @@ const Dashboard = () => {
 Dashboard.getLayout = (page) => {
   return (
     <RootLayout>
-      <DashboardLayout>{page}</DashboardLayout>;
+      <DashboardLayout>{page}</DashboardLayout>
     </RootLayout>
   );
 };

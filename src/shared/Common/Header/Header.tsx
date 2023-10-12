@@ -6,7 +6,7 @@ import Navbar from "./Navbar/Navbar";
 
 const Header = () => {
   return (
-    <header className="">
+    <header className="header">
       <div className="py-2 flex items-center">
         <Link href="/">
           <svg
