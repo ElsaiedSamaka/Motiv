@@ -1,9 +1,11 @@
+import { CircularChart } from "shared";
+
 const Statistics = () => {
   return (
     <div className="statics grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-      <div className="bg-[#A162F7] rounded-[14px] text-white font-semibold flex flex-col justify-center items-center gap-y-4 p-5 h-40 md:h-64">
+      <div className="bg-[#A162F7] rounded-[14px] text-white font-semibold flex flex-col justify-center items-center py-5">
         {/* chart icon */}
-        <span className="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full bg-[#a66ff0] text-white">
+        <span className="inline-flex justify-center items-center w-10 h-10 rounded-full bg-[#a66ff0] text-white">
           <svg
             className="w-5 h-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -16,16 +18,13 @@ const Statistics = () => {
           </svg>
         </span>
         {/* chart icon */}
-        {/* chart title */}
-        <b>Energy</b>
-        {/* chart title */}
-        {/* chart canvas */}
-        <div className="bg-blue-400 ">asd</div>
-        {/* chart canvas */}
+        {/* chart  */}
+        <CircularChart />
+        {/* chart  */}
       </div>
-      <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 ">
+      <div className="bg-[#A162F7] rounded-[14px] text-white font-semibold flex flex-col justify-center items-center py-5">
         {/* chart icon */}
-        <span className="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full bg-[#a66ff0] text-white">
+        <span className="inline-flex justify-center items-center w-10 h-10 rounded-full bg-[#a66ff0] text-white">
           <svg
             className="w-5 h-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,16 +37,13 @@ const Statistics = () => {
           </svg>
         </span>
         {/* chart icon */}
-        {/* chart title */}
-        <b>Energy</b>
-        {/* chart title */}
-        {/* chart canvas */}
-        <div className="bg-blue-400 ">asd</div>
-        {/* chart canvas */}
+        {/* chart  */}
+        <CircularChart />
+        {/* chart  */}
       </div>
-      <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 ">
+      <div className="bg-[#A162F7] rounded-[14px] text-white font-semibold flex flex-col justify-center items-center py-5">
         {/* chart icon */}
-        <span className="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full bg-[#a66ff0] text-white">
+        <span className="inline-flex justify-center items-center w-10 h-10 rounded-full bg-[#a66ff0] text-white">
           <svg
             className="w-5 h-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -60,16 +56,13 @@ const Statistics = () => {
           </svg>
         </span>
         {/* chart icon */}
-        {/* chart title */}
-        <b>Energy</b>
-        {/* chart title */}
-        {/* chart canvas */}
-        <div className="bg-blue-400 ">asd</div>
-        {/* chart canvas */}
+        {/* chart  */}
+        <CircularChart />
+        {/* chart  */}
       </div>
-      <div className="bg-white rounded-[14px] text-black font-semibold flex flex-col justify-center items-center gap-y-4 p-5 ">
+      <div className="bg-[#A162F7] rounded-[14px] text-white font-semibold flex flex-col justify-center items-center py-5">
         {/* chart icon */}
-        <span className="inline-flex justify-center items-center w-[46px] h-[46px] rounded-full bg-[#a66ff0] text-white">
+        <span className="inline-flex justify-center items-center w-10 h-10 rounded-full bg-[#a66ff0] text-white">
           <svg
             className="w-5 h-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -82,12 +75,9 @@ const Statistics = () => {
           </svg>
         </span>
         {/* chart icon */}
-        {/* chart title */}
-        <b>Energy</b>
-        {/* chart title */}
-        {/* chart canvas */}
-        <div className="bg-blue-400 ">asd</div>
-        {/* chart canvas */}
+        {/* chart  */}
+        <CircularChart />
+        {/* chart  */}
       </div>
     </div>
   );

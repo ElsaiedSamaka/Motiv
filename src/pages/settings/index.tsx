@@ -1,5 +1,12 @@
+"use client";
 import Head from "next/head";
-import { RootLayout, SettingsLayout, Title } from "shared";
+import {
+  ChartCard,
+  CircularChart,
+  RootLayout,
+  SettingsLayout,
+  Title,
+} from "shared";
 
 const Settings = () => {
   return (
@@ -13,6 +20,8 @@ const Settings = () => {
       </Head>
       <section className="settings space-y-5">
         <Title title="Settings" />
+        <ChartCard />
+        <CircularChart />
       </section>
     </>
   );
