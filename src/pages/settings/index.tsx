@@ -1,11 +1,20 @@
-import React from 'react'
+import Head from "next/head";
 import { RootLayout, SettingsLayout, Title } from "shared";
 
 const Settings = () => {
   return (
-    <section className="settings space-y-5">
-      <Title title="Settings" />
-    </section>
+    <>
+      <Head>
+        <title>Innovadigits | Settings</title>
+        <meta
+          name="description"
+          content="Next.js 12 + TailwindCSS + ReduxToolKit + RTK Qurey"
+        />
+      </Head>
+      <section className="settings space-y-5">
+        <Title title="Settings" />
+      </section>
+    </>
   );
 };
 Settings.getLayout = (page) => {
@@ -15,4 +24,4 @@ Settings.getLayout = (page) => {
     </RootLayout>
   );
 };
-export default Settings
+export default Settings;
