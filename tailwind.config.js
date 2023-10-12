@@ -30,10 +30,11 @@ module.exports = {
       direction: {
         rtl: "rtl", // Right-to-left
       },
+      fontFamily: {
+        ABeeZee: ["ABeeZee"],
+      },
     },
   },
 
-  plugins: [
-    
-  ],
+  plugins: [],
 };
