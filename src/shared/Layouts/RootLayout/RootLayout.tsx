@@ -1,11 +1,10 @@
-import Breadcrumb from "shared/Common/Breadcrumb/Breadcrumb";
 import Header from "shared/Common/Header/Header";
 
 const RootLayout = ({ children }) => {
   return (
-    <section className="">
+    <section className="root-layout">
       <Header />
-      <section className="md:ml-64 ">{children}</section>
+      <section className="md:ml-64">{children}</section>
     </section>
   );
 };
