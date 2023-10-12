@@ -4,9 +4,9 @@ import Link from "next/link";
 const ProductCard = ({ id }) => {
   return (
     <li>
-      <div className="relative bg-white max-w-md p-5 flex  flex-col rounded-2xl h-50 md:h-70 lg:h-80">
+      <div className="relative bg-white max-w-md p-5 flex  flex-col rounded-2xl h-50 lg:h-50">
         {/* product title */}
-        <div className="product-title flex items-center justify-between">
+        <div className="product-title flex items-center justify-between ">
           <h4 className="text-xl font-bold">Product</h4>
           <svg
             width={24}
@@ -25,18 +25,21 @@ const ProductCard = ({ id }) => {
         {/* product title */}
         <Link href={`/cars/${encodeURIComponent(id)}`}>
           {/* product description */}
-          <span className="text-gray-500"> description</span>
+          <span className="text-gray-500 "> description</span>
           {/* product description */}
           {/* product image */}
           <Image
-            src={RangRover}
+            src="https://res.cloudinary.com/dbolkzi38/image/upload/v1697106277/innova/products/cars/Range-Rover-1_xckgve.png"
+            blurDataURL="https://res.cloudinary.com/dbolkzi38/image/upload/v1697106277/innova/products/cars/Range-Rover-1_xckgve.png"
             placeholder="blur"
             quality={100}
-            className="product-img max-w-md object-scale-down h-[50%] w-[50%] md:w-[60%] md:h-[60%] lg:w-[80%] lg:h-[80%] mx-auto transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0"
+            width={700}
+            height={700}
+            className="product-img !max-w-2xl !object-scale-down !h-[60%] !w-[60%] !md:w-[70%] !md:h-[70%] !lg:w-[100%] !lg:h-[100%] mx-auto transition-all duration-500 cursor-pointer filter grayscale hover:grayscale-0 bg-green-300"
             alt="product-title"
           />
           {/* product details */}
-          <div className="product-details my-2 flex flex-wrap-reverse justify-between items-center text-[#72767C]">
+          <div className="product-details my-2 flex flex-wrap-reverse justify-between items-center text-[#72767C] ">
             {/* left content */}
             <div className="space-x-2 xs:text-sm sm:text-md md:text-md lg:text-lg ">
               <div className="inline-flex flex-wrap items-center justify-center space-x-1">
