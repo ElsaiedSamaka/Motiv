@@ -16,19 +16,19 @@ const Cars = () => {
         <h1 className="page-title text-5xl font-extrabold ">Booking</h1>
         {/* page title */}
         {/* filteration row */}
-        <div className="filteration flex justify-between items-center">
+        <div className="filteration flex flex-wrap justify-between items-center">
           {/* left content */}
-          <div className="flex space-x-4">
+          <div className="flex space-x-2">
             {/* new filteration DDL */}
             <div className="new-filter relative">
               <button
                 id="dropdownHoverButton"
                 data-dropdown-toggle="dropdownHover"
                 data-dropdown-trigger="hover"
-                className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm px-10 py-2.5 text-center inline-flex items-center  space-x-10"
+                className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
                 type="button"
               >
-                <span className="text-lg">New</span>
+                <span className="lg:text-lg">New</span>
                 <svg
                   width={24}
                   height={24}
@@ -78,10 +78,10 @@ const Cars = () => {
                 id="dropdownHoverButton"
                 data-dropdown-toggle="dropdownHover"
                 data-dropdown-trigger="hover"
-                className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm px-10 py-2.5 text-center inline-flex items-center  space-x-10"
+                className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
                 type="button"
               >
-                <span className="text-lg">Toyata</span>
+                <span className="lg:text-lg">Toyata</span>
                 <svg
                   width={24}
                   height={24}
@@ -128,11 +128,10 @@ const Cars = () => {
           </div>
           {/* left content */}
           {/* right content */}
-          <div className="flex space-x-2">
-            <span className="p-4 bg-white rounded-full shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300">
+          <div className="flex items-center space-x-2 ml-auto">
+            <span className=" bg-white rounded-full shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300 xs:p-2 lg:p-4">
               <svg
-                width={24}
-                height={24}
+                className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -163,10 +162,9 @@ const Cars = () => {
                 />
               </svg>
             </span>
-            <span className="p-4 bg-[#A162F7] rounded-full hover:cursor-pointer hover:bg-[#955ce6] transition-colors duration-300">
+            <span className="bg-[#A162F7] rounded-full hover:cursor-pointer hover:bg-[#955ce6] transition-colors duration-300 xs:p-2 lg:p-4">
               <svg
-                width={24}
-                height={24}
+                className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
