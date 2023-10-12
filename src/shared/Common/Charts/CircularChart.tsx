@@ -4,7 +4,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const CircularChart = () => {
-  const [series] = useState([20]);
+  const [series, setStateSeries] = useState([20]);
   const [options] = useState({
     chart: {
       type: "radialBar",
@@ -156,7 +156,12 @@ const CircularChart = () => {
       },
     },
   });
-
+  function handleState() {
+    setStateSeries((prevState) => [prevState[0] + 5]);
+  }
+  //   setInterval(() => {
+  //     handleState();
+  //   }, 3000);
   return (
     <div id="chart">
       <ApexChart
