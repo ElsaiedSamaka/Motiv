@@ -10,7 +10,6 @@ import Grid from "./Common/Grid/Grid";
 import Tabs from "./Common/Tabs/Tabs";
 import Title from "./Common/Title/Title";
 import ProductCard from "./Common/Cards/ProductCard/ProductCard";
-import ChartCard from "./Common/Cards/ChartCard/ChartCard";
 import CircularChart from "./Common/Charts/CircularChart";
 export {
   DashboardLayout,
@@ -20,7 +19,6 @@ export {
   Navbar,
   Aside,
   ProductCard,
-  ChartCard,
   Tabs,
   Form,
   Grid,
