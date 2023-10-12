@@ -22,29 +22,32 @@ const Features = () => {
           <Image src={DesignerDesktop} alt="designer-desktop" />
         </div>
       </div>
-      <div className="col-span-full lg:col-span-5 flex gap-x-4 w-full font-['ABeeZee']">
-        <div className="bg-[#0F2837]  text-white grow rounded-md p-6">
+      <div className="col-span-full lg:col-span-5 flex justify-between space-x-3 w-full font-['ABeeZee']">
+        <div className="bg-[#0F2837]  text-white  rounded-md p-6 min-w-[50%]">
           <Image className="float-right w-32 h-32" src={Trophy} alt="trophy" />
-          <p className="text-xl ">
+          <p className="text-xl mt-5">
             You have earned{" "}
-            <span className="text-[#FF9619] text-4xl"> 20 </span>Badges!
+            <em className="text-[#FF9619] text-5xl block">20</em>
+            <em>Badges!</em>
           </p>
-          <span className="text-[#FF9619] float-none">
-            Hooray! Way to go Mohammed!
+          <span className="text-[#FF9619] text-sm ">
+            Hooray! Way to go Saied!
           </span>
         </div>
-        <div className="bg-[#6E1946]  text-white grow rounded-md p-6">
+        <div className="bg-[#6E1946]  text-white  rounded-md p-6 min-w-[50%]">
           <Image
             className="float-right w-32 h-32"
             src={PeopleRushing}
             alt="award"
           />
-          <p className="text-xl ">
+          <p className="text-xl mt-5">
             You have earned{" "}
-            <span className="text-[#FAC39B] text-4xl"> 1500 </span>
-            Points!
+            <span className="text-[#FAC39B] text-5xl block">
+              <em>1500</em>
+            </span>
+            <em>Points!</em>
           </p>
-          <span className="text-[#FAC39B] float-none">
+          <span className="text-[#FAC39B] text-sm">
             Redeem and claim your rewards!
           </span>
         </div>

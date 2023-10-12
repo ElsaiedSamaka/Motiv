@@ -32,6 +32,7 @@ module.exports = {
       },
       fontFamily: {
         ABeeZee: ["ABeeZee"],
+        DMsans: ["DM Sans"],
       },
     },
   },
