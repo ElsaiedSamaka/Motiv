@@ -35,7 +35,7 @@ const ProductCard = ({ id }) => {
             quality={100}
             width={700}
             height={700}
-            className="product-img !max-w-2xl !object-scale-down !h-[60%] !w-[60%] !md:w-[70%] !md:h-[70%] !lg:w-[100%] !lg:h-[100%] mx-auto transition-all duration-500 cursor-pointer filter grayscale hover:grayscale-0 bg-green-300"
+            className="product-img !max-w-2xl !object-scale-down !h-[60%] !w-[60%] !md:w-[70%] !md:h-[70%] !lg:w-[100%] !lg:h-[100%] mx-auto transition-all duration-500 cursor-pointer filter grayscale hover:grayscale-0 "
             alt="product-title"
           />
           {/* product details */}
