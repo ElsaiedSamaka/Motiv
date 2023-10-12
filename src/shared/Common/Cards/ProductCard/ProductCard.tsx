@@ -4,7 +4,7 @@ import Link from "next/link";
 const ProductCard = ({ id }) => {
   return (
     <li>
-      <div className="relative bg-white max-w-lg p-5 flex  flex-col rounded-2xl h-44 md:h-80">
+      <div className="relative bg-white max-w-md p-5 flex  flex-col rounded-2xl h-50 md:h-70 lg:h-80">
         {/* product title */}
         <div className="product-title flex items-center justify-between">
           <h4 className="text-xl font-bold">Product</h4>
@@ -25,21 +25,21 @@ const ProductCard = ({ id }) => {
         {/* product title */}
         <Link href={`/cars/${encodeURIComponent(id)}`}>
           {/* product description */}
-          <span className="text-gray-500">product description</span>
+          <span className="text-gray-500"> description</span>
           {/* product description */}
           {/* product image */}
           <Image
             src={RangRover}
             placeholder="blur"
             quality={100}
-            className="product-img max-w-md object-scale-down h-48 w-96 mx-auto transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0"
+            className="product-img max-w-md object-scale-down h-[50%] w-[50%] md:w-[60%] md:h-[60%] lg:w-[80%] lg:h-[80%] mx-auto transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0"
             alt="product-title"
           />
           {/* product details */}
-          <div className="product-details my-2 flex justify-between items-center text-[#72767C]">
+          <div className="product-details my-2 flex flex-wrap-reverse justify-between items-center text-[#72767C]">
             {/* left content */}
-            <div className="space-x-2">
-              <div className="inline-flex items-center justify-center space-x-2">
+            <div className="space-x-2 xs:text-sm sm:text-md md:text-md lg:text-lg ">
+              <div className="inline-flex flex-wrap items-center justify-center space-x-1">
                 <svg
                   width={20}
                   height={21}
@@ -55,7 +55,7 @@ const ProductCard = ({ id }) => {
 
                 <span>4</span>
               </div>
-              <div className="inline-flex items-center justify-center space-x-2">
+              <div className="inline-flex items-center justify-center space-x-1">
                 <svg
                   width={20}
                   height={21}
@@ -74,7 +74,7 @@ const ProductCard = ({ id }) => {
             </div>
             {/* left content */}
             {/* right content */}
-            <div className="text-xl">
+            <div className="md:text-sm lg:text-lg ml-auto">
               <span className="font-semibold text-black">$123</span>
               <span>/d</span>
             </div>
