@@ -1,6 +1,7 @@
 import DashboardLayout from "./Layouts/DashboardLayout/DashboardLayout";
 import RootLayout from "./Layouts/RootLayout/RootLayout";
 import SettingsLayout from "./Layouts/SettingsLayout/SettingsLayout";
+import CarsLayout from "./Layouts/CarsLayout/CarsLayout";
 import Aside from "./Common/Header/Aside/Aside";
 import Navbar from "./Common/Header/Navbar/Navbar";
 import Form from "./Forms/ReactHookForm";
@@ -13,6 +14,7 @@ export {
   DashboardLayout,
   RootLayout,
   SettingsLayout,
+  CarsLayout,
   Navbar,
   Aside,
   ProductCard,

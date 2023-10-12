@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <>
       <Head>
-        <title>Innovadigits | FE Task</title>
+        <title>Innovadigits | Dashboard</title>
         <meta
           name="description"
           content="Next.js 12 + TailwindCSS + ReduxToolKit + RTK Qurey"

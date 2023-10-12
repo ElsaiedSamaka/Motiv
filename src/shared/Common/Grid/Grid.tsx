@@ -1,12 +1,16 @@
 import Link from "next/link";
 import React from "react";
+import ProductCard from "../Cards/ProductCard/ProductCard";
 
-const Grid = ({ title = "", path = "" }) => {
+const Grid = () => {
   return (
     <div>
       {/* Grid content */}
-      <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 pt-3 pb-4 ">
-       <li>test</li>
+      <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 gap-5 mt-3 mb-4 ">
+        <ProductCard id="1" />
+        <ProductCard id="2" />
+        <ProductCard id="3" />
+        <ProductCard id="4" />
       </ul>
       {/* Grid content */}
       {/* Loadmore Button */}
