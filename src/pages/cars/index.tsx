@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { CarsLayout, Grid, RootLayout } from "shared";
+import { CarsLayout, Grid, RootLayout, Title } from "shared";
 
 const Cars = () => {
   return (
@@ -13,7 +13,8 @@ const Cars = () => {
       </Head>
       <section className="cars space-y-5 ">
         {/* page title */}
-        <h1 className="page-title text-5xl font-extrabold ">Booking</h1>
+        {/* <h1 className="page-title text-5xl font-extrabold ">Booking</h1> */}
+        <Title title="Booking" />
         {/* page title */}
         {/* filteration row */}
         <div className="filteration flex flex-wrap justify-between items-center">

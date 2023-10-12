@@ -2,7 +2,7 @@ import React from "react";
 import { CarsLayout, RootLayout } from "shared";
 
 const ProductDetails = () => {
-  return <div>ProductDetails</div>;
+  return <section className="product-details">ProductDetails</section>;
 };
 
 ProductDetails.getLayout = (page) => {

@@ -1,11 +1,13 @@
 import React from 'react'
-import { RootLayout, SettingsLayout } from 'shared';
+import { RootLayout, SettingsLayout, Title } from "shared";
 
 const Settings = () => {
   return (
-    <div>Settings</div>
-  )
-}
+    <section className="settings space-y-5">
+      <Title title="Settings" />
+    </section>
+  );
+};
 Settings.getLayout = (page) => {
   return (
     <RootLayout>

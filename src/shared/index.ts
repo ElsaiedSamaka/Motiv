@@ -8,6 +8,7 @@ import Form from "./Forms/ReactHookForm";
 import Anchor from "./Common/Anchor/Anchor";
 import Grid from "./Common/Grid/Grid";
 import Tabs from "./Common/Tabs/Tabs";
+import Title from "./Common/Title/Title";
 import ProductCard from "./Common/Cards/ProductCard/ProductCard";
 import ChartCard from "./Common/Cards/ChartCard/ChartCard";
 export {
@@ -23,4 +24,5 @@ export {
   Form,
   Grid,
   Anchor,
+  Title,
 };
