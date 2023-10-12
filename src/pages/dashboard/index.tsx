@@ -11,7 +11,7 @@ const Dashboard = () => {
           content="Next.js 12 + TailwindCSS + ReduxToolKit + RTK Qurey"
         />
       </Head>
-      <section className="p-4 h-auto">
+      <section className="dashboard-page p-10">
         {/* statitics */}
         <div className="statics grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           <div className="bg-[#A162F7] rounded-[14px] text-white font-semibold flex flex-col justify-center items-center gap-y-4 p-5 h-40 md:h-64">

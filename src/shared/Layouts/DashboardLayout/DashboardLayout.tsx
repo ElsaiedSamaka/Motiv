@@ -20,7 +20,7 @@ const ActiveMenuLink = ({ children, href }) => {
 const DashboardLayout = ({ children }) => {
   return (
     <section className="dashboard-layout">
-      <div className="p-5 bg-[#F5F5F5]">{children}</div>
+      <div className="bg-[#F5F5F5]">{children}</div>
     </section>
   );
 };
