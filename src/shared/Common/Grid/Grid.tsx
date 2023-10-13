@@ -7,11 +7,11 @@ import PlaceholderCard from "../Cards/PlacholderCard/PlaceholderCard";
 const Grid = ({ data }) => {
   return (
     <div>
-        <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 gap-5 mt-3 mb-4 ">
-          {data.map((item: Car, i) => {
-            return <ProductCard key={item.id} item={item} />;
-          })}
-        </ul>
+      <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 gap-4 mt-3 mb-4 ">
+        {data.map((item: Car, i) => {
+          return <ProductCard key={item.id} item={item} />;
+        })}
+      </ul>
       {/* Loadmore Button */}
       <div className="load-more flex justify-center">
         <a className="flex items-center justify-center space-x-1 px-3 h-8 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:cursor-pointer hover:text-gray-700 :bg-gray-800 :border-gray-700 :text-gray-400 :hover:bg-gray-700 :hover:text-white">

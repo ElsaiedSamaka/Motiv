@@ -35,9 +35,9 @@ const ProductCard = ({ item }) => {
             blurDataURL={item.car_img}
             placeholder="blur"
             quality={100}
-            width={300}
-            height={300}
-            className="product-img max-w-xl mx-auto max-h-32 h-auto w-auto transition-all duration-500 cursor-pointer filter grayscale hover:grayscale-0 "
+            width={150}
+            height={150}
+            className="product-img object-scale-down max-w-sm mx-auto max-h-24 h-auto w-auto transition-all duration-500 cursor-pointer filter grayscale hover:grayscale-0 "
             alt={item.name}
           />
           <div className="product-details my-2 flex flex-wrap-reverse justify-between items-center text-[#72767C] ">
