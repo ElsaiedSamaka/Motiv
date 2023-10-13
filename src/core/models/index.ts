@@ -1,3 +1,3 @@
 import Car from "./Car.model";
-
-export type { Car };
+import Brand from "./Brand.model";
+export type { Car, Brand };

@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { brandsApi } from "core/services/brands.service";
 import { carsApi } from "core/services/cars.service";
 export const store = configureStore({
   reducer: {
     [carsApi.reducerPath]: carsApi.reducer,
+    [brandsApi.reducerPath]: brandsApi.reducer,
   },
 
   /**
@@ -12,7 +14,8 @@ export const store = configureStore({
    */
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(
-      carsApi.middleware
+      carsApi.middleware,
+      brandsApi.middleware
     ),
   devTools: true,
 });

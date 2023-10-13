@@ -75,5 +75,23 @@
             "brand": "RangRover",
             "transmissions": "Automatic"
           }
-        ]
+        ],
+        "brands": [
+          {
+            "id": 1,
+            "name": "Toyata"
+          },
+          {
+            "id": 2,
+            "name": "Merceds"
+          },
+          {
+            "id": 3,
+            "name": "BMW"
+          },
+          {
+            "id": 4,
+            "name": "RangRover"
+          }
+  ]
 }
