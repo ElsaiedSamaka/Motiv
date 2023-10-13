@@ -40,7 +40,16 @@ export const carsApi = createApi({
      * @returns {Car} - The car object.
      */
     getCarsByName: builder.query<Car, string>({
-      query: (name) => `cars/${name}`,
+      query: (name) => `cars?name=${name}`,
+    }),
+
+    /**
+     * Retrieves a car by its brand.
+     * @param {string} name - The name of the car.
+     * @returns {Car} - The car object.
+     */
+    getCarsByBrand: builder.query<Car, string>({
+      query: (brand) => `cars?brand=${brand}`,
     }),
 
     /**
@@ -92,6 +101,7 @@ export const {
   useGetCarsQuery,
   useGetCarsByNameQuery,
   useGetCarsByIdQuery,
+  useGetCarsByBrandQuery,
   useAddCarMutation,
   useUpdateCarMutation,
   useDeleteCarMutation,
