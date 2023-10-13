@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const CircularChart = ({ title, textColor, strokeColor }) => {
-  const [series, setStateSeries] = useState([20]);
+  const [series, setStateSeries] = useState([9000]);
   const [options] = useState({
     chart: {
       type: "radialBar",
@@ -53,8 +53,17 @@ const CircularChart = ({ title, textColor, strokeColor }) => {
             fontWeight: 600,
             color: textColor,
             offsetY: 0,
+            // TODO: add a custom formatter pipe for the following formatter function
             formatter: function (val) {
-              return val + "%";
+              if (val > 1000 && val < 999999) {
+                return val / 1000 + "k" + "%";
+              } else if (val > 999999 && val < 9999999) {
+                return val / 1000000 + "m" + "%";
+              } else if (val <= 1000 && val > 0) {
+                return val + "%";
+              } else {
+                return val;
+              }
             },
           },
         },
