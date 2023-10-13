@@ -1,58 +1,79 @@
 {
-    "products": [
+  "cars": [
+    {
+      "id": 1,
+      "name": "Toyata C11",
+      "description": "toyata c11 car is a 5 seater 4 cylinder car and has length of 4793mm, width of 2033mm and a wheelbase of 2865mm.",
+      "price": 1000000,
+      "stock": 12,
+      "car_img": "https://res.cloudinary.com/dbolkzi38/image/upload/v1697211497/innova/products/cars/klipartz.com_2_jlppkj.png",
+      "brand": "Toyata",
+      "passengers": 4,
+      "transmissions": "Manual"
+    },
         {
-            "id": 1,
-            "name": "string",
-            "description": "string",
-            "price": "number",
-            "stock": 12,
-            "availablity": true,
-            "product_img": "string",
-            "cloudinary_id": "string",
-            "categoryId": 2,
-            "salesPerDay": 1.4,
-            "rating": 4
+          "id": 2,
+          "name": "Toyata s20",
+          "description": "toyata s20 car is a 5 seater 4 cylinder car and has length of 4793mm, width of 2033mm and a wheelbase of 2865mm.",
+          "price": 1000000,
+          "stock": 10,
+          "car_img": "https://res.cloudinary.com/dbolkzi38/image/upload/v1697210388/innova/products/cars/klipartz.com_1_tcxwca.png",
+          "brand": "Toyata",
+          "passengers": 4
         },
         {
-            "id": 2,
-            "name": "string",
-            "description": "string",
-            "price": "number",
-            "stock": 12,
-            "availablity": true,
-            "product_img": "string",
-            "cloudinary_id": "string",
-            "categoryId": 2,
-            "salesPerDay": 1.4,
-            "rating": 4
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "phonenumber": "01150567130",
-            "email": "loremiipsum99@gmail.com",
-            "birthdate": "21/3/1997",
-            "address": "mansourah",
-            "password": "zxczxxc",
-            "user_img": "https://unsplash.com/photos/sP5ZW-JDIfI",
-            "passwordConfirmation": "zxczxxc",
-            "firstname": "saied",
-            "lastname": "samaka",
-            "socketId": "axcxwe2"
+          "id": 3,
+          "name": "Merceds s21",
+          "description": "Merceds s21 car is a 5 seater 4 cylinder car and has length of 4793mm, width of 2033mm and a wheelbase of 2865mm.",
+          "price": 1000000,
+          "stock": 10,
+          "car_img": "https://res.cloudinary.com/dbolkzi38/image/upload/v1697210130/innova/products/cars/car-png-39058_ig1oeu.png",
+          "brand": "Merceds",
+          "passengers": 2,
+          "transmissions": "Automatic"
         },
         {
-            "id": 1,
-            "phonenumber": "01150567130",
-            "email": "loremiipsum99@gmail.com",
-            "birthdate": "21/3/1997",
-            "address": "mansourah",
-            "password": "zxczxxc",
-            "user_img": "https://unsplash.com/photos/sP5ZW-JDIfI",
-            "passwordConfirmation": "zxczxxc",
-            "firstname": "saied",
-            "lastname": "samaka",
-            "socketId": "axcxwe2"
-        }
-    ]
+          "id": 4,
+          "name": "Merceds c22",
+          "description": "Merceds c22 car is a 5 seater 4 cylinder car and has length of 4793mm, width of 2033mm and a wheelbase of 2865mm.",
+          "price": 1000000,
+          "stock": 10,
+          "car_img": "https://res.cloudinary.com/dbolkzi38/image/upload/v1697209788/innova/products/cars/car-png-39068_cnqzh9.png",
+          "brand": "Merceds",
+          "passengers": 4,
+          "transmissions": "Automatic"
+        },
+        {
+          "id": 5,
+          "name": "BMW c22",
+          "description": "BMW c22 car is a 5 seater 4 cylinder car and has length of 4793mm, width of 2033mm and a wheelbase of 2865mm.",
+          "price": 1000000,
+          "stock": 10,
+          "car_img": "https://res.cloudinary.com/dbolkzi38/image/upload/v1697209674/innova/products/cars/bmw-car-png-2093_swwoc1.png",
+          "brand": "BMW",
+          "passengers": 4,
+          "transmissions": "Automatic"
+        },
+        {
+            "id": 6,
+            "name": "BMW A10",
+            "description": "BMW A10 car is a 5 seater 4 cylinder car and has length of 4793mm, width of 2033mm and a wheelbase of 2865mm.",
+            "price": 1000000,
+            "stock": 10,
+            "car_img": "https://res.cloudinary.com/dbolkzi38/image/upload/v1697209583/innova/products/cars/bmw-car-png-2086_wpki1p.png",
+            "brand": "BMW",
+            "passengers": 4,
+            "transmissions": "Automatic"
+          },
+          {
+            "id": 7,
+            "name": "RangRover A10",
+            "description": "RangRover A10 car is a 5 seater 4 cylinder car and has length of 4793mm, width of 2033mm and a wheelbase of 2865mm.",
+            "price": 1000000,
+            "stock": 10,
+            "car_img": "https://res.cloudinary.com/dbolkzi38/image/upload/v1697106277/innova/products/cars/Range-Rover-1_xckgve.png",
+            "brand": "RangRover",
+            "transmissions": "Automatic"
+          }
+        ]
 }

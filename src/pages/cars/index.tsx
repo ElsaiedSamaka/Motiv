@@ -1,8 +1,17 @@
+import { useGetCarsQuery } from "core/services/cars.service";
 import Head from "next/head";
-import { CarsLayout, Grid, RootLayout, Title } from "shared";
+import { CarsLayout, Grid, PlaceholderCard, RootLayout, Title } from "shared";
 import { Filteration } from "views";
 
 const Cars = () => {
+  const {
+    data = [],
+    error,
+    isError,
+    isLoading,
+    isFetching,
+    isSuccess,
+  } = useGetCarsQuery();
   return (
     <>
       <Head>
@@ -15,7 +24,18 @@ const Cars = () => {
       <section className="cars space-y-5 ">
         <Title title="Booking" />
         <Filteration />
-        <Grid />
+        {isLoading && (
+          <div>
+            <ul className="grid grid-cols-4 xs:grid-cols-1 md:grid-cols-3 gap-5 mt-3 mb-4 ">
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+              <PlaceholderCard />
+            </ul>
+          </div>
+        )}
+        {isError && <div>Something went wrong</div>}
+        {isSuccess && <Grid data={data} />}
       </section>
     </>
   );

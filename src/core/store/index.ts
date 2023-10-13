@@ -1,11 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productsReducer from "./products/products.slice";
+import { carsApi } from "core/services/cars.service";
 export const store = configureStore({
   reducer: {
-    products: productsReducer,
+    [carsApi.reducerPath]: carsApi.reducer,
   },
+
+  /**
+   * Initializes the middleware with the provided `getDefaultMiddleware` function.
+   *
+   * @param {function} getDefaultMiddleware - The function used to get the default middleware.
+   * @return {object} The initialized middleware object.
+   */
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }),
+    getDefaultMiddleware({ serializableCheck: false }).concat(
+      carsApi.middleware
+    ),
   devTools: true,
 });
 

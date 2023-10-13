@@ -12,6 +12,7 @@ import Title from "./Common/Title/Title";
 import ProductCard from "./Common/Cards/ProductCard/ProductCard";
 import CircularChart from "./Common/Charts/CircularChart";
 import ChartCard from "./Common/Cards/ChartCard/ChartCard";
+import PlaceholderCard from "./Common/Cards/PlacholderCard/PlaceholderCard";
 export {
   DashboardLayout,
   RootLayout,
@@ -21,6 +22,7 @@ export {
   Aside,
   ProductCard,
   ChartCard,
+  PlaceholderCard,
   Tabs,
   Form,
   Grid,

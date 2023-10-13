@@ -1,119 +1,200 @@
+import classNames from "classnames";
+import { useState } from "react";
+
 const Filteration = () => {
   return (
     <div className="filteration flex flex-wrap justify-between items-center">
-      {/* left content */}
-      <div className="flex space-x-2">
-        {/* new filteration DDL */}
-        <div className="new-filter relative">
-          <button
-            id="dropdownHoverButton"
-            data-dropdown-toggle="dropdownHover"
-            data-dropdown-trigger="hover"
-            className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
-            type="button"
+      <FilterBy />
+      <FilterationOptions />
+    </div>
+  );
+};
+const FilterBy = () => {
+  const [showFilteration, setShowFilteration] = useState<boolean>(false);
+  const [showFilterationByType, setShowFilterationByType] =
+    useState<boolean>(false);
+  const [selectedFilter, setSelectedFilter] = useState<string>("New");
+  const [selectedManufacturer, setSelectedManufacturer] =
+    useState<string>("Toyata");
+  function toggleFilteration() {
+    setShowFilteration(!showFilteration);
+  }
+  function toggleFilterationByType() {
+    setShowFilterationByType(!showFilterationByType);
+  }
+  function handleFilterSelection(selected: string) {
+    setSelectedFilter(selected);
+    toggleFilteration();
+  }
+  function handleManufactorSelection(selected: string) {
+    setSelectedManufacturer(selected);
+    toggleFilterationByType();
+  }
+  return (
+    <div className="flex space-x-2">
+      {/* new filteration DDL */}
+      <div className="new-filter relative">
+        <button
+          onClick={toggleFilteration}
+          id="showFilterationButton"
+          className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
+          type="button"
+        >
+          <span className="lg:text-lg">{selectedFilter}</span>
+          <svg
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <span className="lg:text-lg">New</span>
-            <svg
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M17.9142 8C18.4592 8 18.7622 8.63046 18.4218 9.05605L12.8408 16.0322C12.5806 16.3575 12.0859 16.3575 11.8257 16.0322L6.24478 9.05605C5.9043 8.63046 6.20731 8 6.75234 8L17.9142 8Z"
-                fill="#B4B4C6"
-              />
-            </svg>
-          </button>
-          {/* Dropdown menu */}
-          <div
-            id="dropdownHover"
-            className="absolute hidden top-14 z-10 bg-white divide-y divide-gray-100 rounded-3xl shadow w-44 "
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M17.9142 8C18.4592 8 18.7622 8.63046 18.4218 9.05605L12.8408 16.0322C12.5806 16.3575 12.0859 16.3575 11.8257 16.0322L6.24478 9.05605C5.9043 8.63046 6.20731 8 6.75234 8L17.9142 8Z"
+              fill="#B4B4C6"
+            />
+          </svg>
+        </button>
+        {/* Dropdown menu */}
+        <div
+          id="dropdownHover"
+          className={classNames(
+            `${
+              showFilteration ? "block" : "hidden"
+            } absolute top-14 z-10 bg-white divide-y divide-gray-100 rounded-2xl shadow-md w-44`
+          )}
+        >
+          <ul
+            className="py-2 text-sm text-gray-400 font-semibold"
+            aria-labelledby="dropdownHoverButton"
           >
-            <ul
-              className="py-2 text-sm text-gray-400 font-semibold"
-              aria-labelledby="dropdownHoverButton"
-            >
-              <li>
-                <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                  Pobular
-                </a>
-              </li>
-              <li>
-                <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                  Latest Updated
-                </a>
-              </li>
-              <li>
-                <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                  First Added
-                </a>
-              </li>
-            </ul>
-          </div>
+            <li>
+              <a
+                onClick={() => handleFilterSelection("New")}
+                className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+              >
+                New
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => handleFilterSelection("Highest price")}
+                className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+              >
+                Highest price
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => handleFilterSelection("Lowest price")}
+                className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+              >
+                Lowest price
+              </a>
+            </li>
+          </ul>
         </div>
-        {/* new filteration DDL */}
-        {/* manufactor filteration DDL */}
-        <div className="manufactor-filter relative">
-          <button
-            id="dropdownHoverButton"
-            data-dropdown-toggle="dropdownHover"
-            data-dropdown-trigger="hover"
-            className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
-            type="button"
-          >
-            <span className="lg:text-lg">Toyata</span>
-            <svg
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M17.9142 8C18.4592 8 18.7622 8.63046 18.4218 9.05605L12.8408 16.0322C12.5806 16.3575 12.0859 16.3575 11.8257 16.0322L6.24478 9.05605C5.9043 8.63046 6.20731 8 6.75234 8L17.9142 8Z"
-                fill="#B4B4C6"
-              />
-            </svg>
-          </button>
-          {/* Dropdown menu */}
-          <div
-            id="dropdownHover"
-            className="absolute hidden top-14 z-10 bg-white divide-y divide-gray-100 rounded-3xl shadow w-52 "
-          >
-            <ul
-              className="py-2 text-sm text-gray-400 font-semibold"
-              aria-labelledby="dropdownHoverButton"
-            >
-              <li>
-                <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                  BMW
-                </a>
-              </li>
-              <li>
-                <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                  Mereceds
-                </a>
-              </li>
-              <li>
-                <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                  WolksDawln
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        {/* manufactor filteration DDL */}
       </div>
-      {/* left content */}
-      {/* right content */}
-      <div className="flex items-center space-x-2 ml-auto">
-        <span className=" bg-white rounded-full shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300 xs:p-2 lg:p-4">
+      {/* new filteration DDL */}
+      {/* manufactor filteration DDL */}
+      <div className="manufactor-filter relative">
+        <button
+          onClick={toggleFilterationByType}
+          id="manufacturButton"
+          className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
+          type="button"
+        >
+          <span className="lg:text-lg">{selectedManufacturer}</span>
+          <svg
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M17.9142 8C18.4592 8 18.7622 8.63046 18.4218 9.05605L12.8408 16.0322C12.5806 16.3575 12.0859 16.3575 11.8257 16.0322L6.24478 9.05605C5.9043 8.63046 6.20731 8 6.75234 8L17.9142 8Z"
+              fill="#B4B4C6"
+            />
+          </svg>
+        </button>
+        {/* Dropdown menu */}
+        <div
+          id="manufacturDropdown"
+          className={classNames(
+            `${
+              showFilterationByType ? "block" : "hidden"
+            } absolute top-14 z-10 bg-white divide-y divide-gray-100 rounded-2xl shadow-md w-52`
+          )}
+        >
+          <div className="flex justify-between my-2 p-2">
+            <input
+              className="p-2 rounded-xl w-full border focus:outline-gray-300"
+              type="search"
+              autoFocus={true}
+              placeholder="Search..."
+            />
+          </div>
+          <ul
+            className="py-2 text-sm text-gray-400 font-semibold h-36 overflow-y-scroll"
+            aria-labelledby="dropdownHoverButton"
+          >
+            <li>
+              <a
+                onClick={() => handleManufactorSelection("BMW")}
+                className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+              >
+                BMW
+              </a>
+            </li>
+            <li>
+              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
+                Mereceds
+              </a>
+            </li>
+            <li>
+              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
+                WolksDawln
+              </a>
+            </li>
+            <li>
+              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
+                BMW
+              </a>
+            </li>
+            <li>
+              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
+                Mereceds
+              </a>
+            </li>
+            <li>
+              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
+                WolksDawln
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* manufactor filteration DDL */}
+    </div>
+  );
+};
+
+const FilterationOptions = () => {
+  const [dataView, setDataView] = useState<"grid" | "list">("grid");
+  function toggleDateView() {
+    setDataView(dataView === "grid" ? "list" : "grid");
+  }
+  return (
+    <div className="flex items-center space-x-2 ml-auto">
+      <span
+        onClick={toggleDateView}
+        className=" bg-white rounded-full shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300 xs:p-2 lg:p-4"
+      >
+        {dataView === "grid" && (
           <svg
             className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
             viewBox="0 0 24 24"
@@ -145,42 +226,58 @@ const Filteration = () => {
               fill="#777E91"
             />
           </svg>
-        </span>
-        <span className="bg-[#A162F7] rounded-full hover:cursor-pointer hover:bg-[#955ce6] transition-colors duration-300 xs:p-2 lg:p-4">
+        )}
+        {dataView === "list" && (
           <svg
-            className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
-            viewBox="0 0 24 24"
+            className="lg:w-6 lg:h-6 xs:w-5 xs:h-5 text-gray-500"
             fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M2 16C1.44772 16 1 16.4477 1 17C1 17.5523 1.44772 18 2 18H13C13.5523 18 14 17.5523 14 17C14 16.4477 13.5523 16 13 16H2ZM19 16C18.4477 16 18 16.4477 18 17C18 17.5523 18.4477 18 19 18H22C22.5523 18 23 17.5523 23 17C23 16.4477 22.5523 16 22 16H19Z"
-              fill="white"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M16 19C17.1046 19 18 18.1046 18 17C18 15.8954 17.1046 15 16 15C14.8954 15 14 15.8954 14 17C14 18.1046 14.8954 19 16 19ZM16 21C18.2091 21 20 19.2091 20 17C20 14.7909 18.2091 13 16 13C13.7909 13 12 14.7909 12 17C12 19.2091 13.7909 21 16 21Z"
-              fill="white"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M2 6C1.44772 6 1 6.44772 1 7C1 7.55228 1.44772 8 2 8H5C5.55228 8 6 7.55228 6 7C6 6.44772 5.55228 6 5 6H2ZM11 6C10.4477 6 10 6.44772 10 7C10 7.55228 10.4477 8 11 8H22C22.5523 8 23 7.55228 23 7C23 6.44772 22.5523 6 22 6H11Z"
-              fill="white"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M8 9C9.10457 9 10 8.10457 10 7C10 5.89543 9.10457 5 8 5C6.89543 5 6 5.89543 6 7C6 8.10457 6.89543 9 8 9ZM8 11C10.2091 11 12 9.20914 12 7C12 4.79086 10.2091 3 8 3C5.79086 3 4 4.79086 4 7C4 9.20914 5.79086 11 8 11Z"
-              fill="white"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5"
             />
           </svg>
-        </span>
-      </div>
-      {/* right content */}
+        )}
+      </span>
+      <span className="bg-[#A162F7] rounded-full hover:cursor-pointer hover:bg-[#955ce6] transition-colors duration-300 xs:p-2 lg:p-4">
+        <svg
+          className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M2 16C1.44772 16 1 16.4477 1 17C1 17.5523 1.44772 18 2 18H13C13.5523 18 14 17.5523 14 17C14 16.4477 13.5523 16 13 16H2ZM19 16C18.4477 16 18 16.4477 18 17C18 17.5523 18.4477 18 19 18H22C22.5523 18 23 17.5523 23 17C23 16.4477 22.5523 16 22 16H19Z"
+            fill="white"
+          />
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M16 19C17.1046 19 18 18.1046 18 17C18 15.8954 17.1046 15 16 15C14.8954 15 14 15.8954 14 17C14 18.1046 14.8954 19 16 19ZM16 21C18.2091 21 20 19.2091 20 17C20 14.7909 18.2091 13 16 13C13.7909 13 12 14.7909 12 17C12 19.2091 13.7909 21 16 21Z"
+            fill="white"
+          />
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M2 6C1.44772 6 1 6.44772 1 7C1 7.55228 1.44772 8 2 8H5C5.55228 8 6 7.55228 6 7C6 6.44772 5.55228 6 5 6H2ZM11 6C10.4477 6 10 6.44772 10 7C10 7.55228 10.4477 8 11 8H22C22.5523 8 23 7.55228 23 7C23 6.44772 22.5523 6 22 6H11Z"
+            fill="white"
+          />
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M8 9C9.10457 9 10 8.10457 10 7C10 5.89543 9.10457 5 8 5C6.89543 5 6 5.89543 6 7C6 8.10457 6.89543 9 8 9ZM8 11C10.2091 11 12 9.20914 12 7C12 4.79086 10.2091 3 8 3C5.79086 3 4 4.79086 4 7C4 9.20914 5.79086 11 8 11Z"
+            fill="white"
+          />
+        </svg>
+      </span>
     </div>
   );
 };
