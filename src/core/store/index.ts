@@ -6,7 +6,6 @@ export const store = configureStore({
   },
 
   /**
-   * Initializes the middleware with the provided `getDefaultMiddleware` function.
    *
    * @param {function} getDefaultMiddleware - The function used to get the default middleware.
    * @return {object} The initialized middleware object.
