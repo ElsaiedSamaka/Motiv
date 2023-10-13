@@ -4,7 +4,7 @@ import Link from "next/link";
 const ProductCard = ({ item }) => {
   return (
     <li>
-      <div className="relative flex  flex-col rounded-2xl bg-white max-w-xl min-w-sm max-h-80 min-h-50 p-5">
+      <div className="relative flex  flex-col rounded-2xl bg-white max-w-xl min-w-sm max-h-80 min-h-50 p-5 overflow-clip">
         <div className="product-title flex items-center justify-between ">
           <h4 className="text-xl font-bold">{item.name}</h4>
           <span className="p-2 rounded-full text-gray-500 hover:bg-gray-50 hover:cursor-pointer hover:text-gray-700 transition-colors duration-300">
@@ -35,9 +35,9 @@ const ProductCard = ({ item }) => {
             blurDataURL={item.car_img}
             placeholder="blur"
             quality={100}
-            width={150}
-            height={150}
-            className="product-img object-scale-down max-w-sm mx-auto max-h-24 h-auto w-auto transition-all duration-500 cursor-pointer filter grayscale hover:grayscale-0 "
+            width={200}
+            height={200}
+            className="product-img object-scale-down max-w-md mx-auto max-h-32  h-auto w-auto transition-all duration-500 cursor-pointer filter grayscale hover:grayscale-0 "
             alt={item.name}
           />
           <div className="product-details my-2 flex flex-wrap-reverse justify-between items-center text-[#72767C] ">
