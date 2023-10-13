@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // ApexCharts wont work for server component by default so we have to use dynamic import in order
 // to lazely load it
 import dynamic from "next/dynamic";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
-const CircularChart = () => {
+const CircularChart = ({ title, textColor, accentColor }) => {
   const [series, setStateSeries] = useState([20]);
   const [options] = useState({
     chart: {
@@ -51,7 +51,7 @@ const CircularChart = () => {
             fontSize: "28px",
             fontFamily: "DM sans",
             fontWeight: 600,
-            color: "#fff",
+            color: textColor,
             offsetY: 0,
             formatter: function (val) {
               return val + "%";
@@ -62,8 +62,7 @@ const CircularChart = () => {
     },
     fill: {
       type: "solid",
-      colors: ["#fff"],
-
+      colors: [accentColor],
       // if we ever needed to check over some value for fill colors we can use below code
       //   colors: [
       //     function ({ value, seriesIndex, w }) {
@@ -81,11 +80,11 @@ const CircularChart = () => {
       lineCap: "round",
       curve: "smooth",
       colors: ["#000"],
-      width: 0,
+      width: 10,
     },
     labels: [""],
     title: {
-      text: "Energy",
+      text: title,
       align: "center",
       margin: 10,
       offsetX: 0,
@@ -95,7 +94,7 @@ const CircularChart = () => {
         fontSize: "24px",
         fontWeight: "bold",
         fontFamily: "DM sans",
-        color: "#fff",
+        color: textColor,
       },
     },
     tooltip: {
@@ -156,12 +155,7 @@ const CircularChart = () => {
       },
     },
   });
-  function handleState() {
-    setStateSeries((prevState) => [prevState[0] + 5]);
-  }
-  //   setInterval(() => {
-  //     handleState();
-  //   }, 3000);
+
   return (
     <div id="chart">
       <ApexChart
