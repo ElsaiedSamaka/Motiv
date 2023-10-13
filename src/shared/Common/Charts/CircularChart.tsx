@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // to lazely load it
 import dynamic from "next/dynamic";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
-const CircularChart = ({ title, textColor, accentColor }) => {
+const CircularChart = ({ title, textColor, strokeColor }) => {
   const [series, setStateSeries] = useState([20]);
   const [options] = useState({
     chart: {
@@ -17,7 +17,7 @@ const CircularChart = ({ title, textColor, accentColor }) => {
         offsetX: 0,
         offsetY: 10,
         hallow: {
-          margin: 5,
+          margin: 0,
           size: "0%",
           background: "transparent",
           image: undefined,
@@ -39,10 +39,10 @@ const CircularChart = ({ title, textColor, accentColor }) => {
           show: true,
           startAngle: -130,
           endAngle: 130,
-          background: "#ffffffc2",
+          background: "#f4f5f9",
           opacity: 0.9,
           margin: 0,
-          strokeWidth: "90%",
+          strokeWidth: "100%",
         },
         dataLabels: {
           show: true,
@@ -62,7 +62,7 @@ const CircularChart = ({ title, textColor, accentColor }) => {
     },
     fill: {
       type: "solid",
-      colors: [accentColor],
+      colors: [strokeColor],
       // if we ever needed to check over some value for fill colors we can use below code
       //   colors: [
       //     function ({ value, seriesIndex, w }) {
@@ -80,7 +80,7 @@ const CircularChart = ({ title, textColor, accentColor }) => {
       lineCap: "round",
       curve: "smooth",
       colors: ["#000"],
-      width: 10,
+      width: 4,
     },
     labels: [""],
     title: {

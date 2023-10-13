@@ -4,10 +4,12 @@ const Statistics = () => {
   return (
     <div className="statics grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
       <ChartCard
-        title="Energy"
-        bgColor="bg-[#a162f7]"
-        textColor="#fff"
-        accentColor="#fff"
+        chartOptions={{
+          title: "Energy",
+          bgColor: "bg-[#a162f7]",
+          textColor: "#fff",
+          strokeColor: "#fff",
+        }}
         chartIcon={
           <span
             className={`bg-[#A66FF0] inline-flex justify-center items-center w-10 h-10 rounded-full`}
@@ -28,10 +30,12 @@ const Statistics = () => {
         }
       />
       <ChartCard
-        title="Range"
-        bgColor="bg-[#fff]"
-        textColor="#242731"
-        accentColor="#FF7E86"
+        chartOptions={{
+          title: "Range",
+          bgColor: "bg-[#fff]",
+          textColor: "#242731",
+          strokeColor: "#FF7E86",
+        }}
         chartIcon={
           <span
             className={`bg-[#fff3f3] inline-flex justify-center items-center w-10 h-10 rounded-full`}
@@ -52,10 +56,12 @@ const Statistics = () => {
         }
       />
       <ChartCard
-        title="Break fluid"
-        bgColor="bg-[#fff]"
-        textColor="#242731"
-        accentColor="#A162F7"
+        chartOptions={{
+          title: "Break fluid",
+          bgColor: "bg-[#fff]",
+          textColor: "#242731",
+          strokeColor: "#A162F7",
+        }}
         chartIcon={
           <span
             className={`bg-[#f6f0ff] inline-flex justify-center items-center w-10 h-10 rounded-full`}
@@ -76,10 +82,12 @@ const Statistics = () => {
         }
       />
       <ChartCard
-        title="Tire Wear"
-        bgColor="bg-[#fff]"
-        textColor="#242731"
-        accentColor="#F6CC0D"
+        chartOptions={{
+          title: "Tire Wear",
+          bgColor: "bg-[#fff]",
+          textColor: "#242731",
+          strokeColor: "#F6CC0D",
+        }}
         chartIcon={
           <span
             className={`bg-[#fffae7] inline-flex justify-center items-center w-10 h-10 rounded-full`}
