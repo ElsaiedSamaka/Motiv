@@ -1,4 +1,3 @@
-import { useGetBrandsByNameQuery } from "core/services/brands.service";
 import { createContext, useContext, useReducer } from "react";
 
 // initial state
@@ -39,6 +38,12 @@ const carsReducer = (state, action) => {
         ...state,
         isLoading: true,
         isFetching: false,
+      };
+    case "FETCH_CARS_BY_BRAND":
+      console.log("FETCH_CARS_BY_BRAND [payload]", action.payload);
+      return {
+        ...state,
+        data: action.payload,
       };
     case "RESET_CARS":
       return initialState;

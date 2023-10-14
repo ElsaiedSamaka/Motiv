@@ -7,6 +7,7 @@ import { useGetCarsByBrandQuery } from "core/services/cars.service";
 import { useEffect, useState } from "react";
 import { Car } from "core/models";
 import { useDebounce } from "core/hooks";
+import { useCarsContext } from "core/context/CarsContext";
 
 const Filteration = () => {
   return (
@@ -108,6 +109,8 @@ const FilterByBrand = () => {
   const [isBrandFilterDisplayed, setBrandFilterDisplay] = useState(false);
   const [selectedBrand, setSelectedBrand] = useState("All");
   const [brand, setBrand] = useState("");
+  const { state: carsState, dispatch } = useCarsContext();
+
   // API calls
   const {
     data: brands = [],
@@ -116,18 +119,28 @@ const FilterByBrand = () => {
     isError: errorGettingBrands,
   } = useGetBrandsByNameQuery(brand);
 
+  const { data: cars = [] } = useGetCarsByBrandQuery(selectedBrand);
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_CARS_BY_BRAND", payload: cars });
+  }, [cars]);
+
   function toggleBrandFilterDisplay() {
     setBrandFilterDisplay(!isBrandFilterDisplayed);
+    setBrand("");
   }
+
   function handleSearchOverBrands(e) {
     const brandName = e.target.value;
     setBrand(brandName);
   }
+
   function handleBrandSelection(selected) {
     setSelectedBrand(selected);
     setBrand(selected);
     toggleBrandFilterDisplay();
   }
+
   return (
     <div className="manufactor-filter relative">
       <button

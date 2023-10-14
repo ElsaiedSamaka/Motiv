@@ -13,7 +13,7 @@ const Grid = ({ data, dispatch }) => {
         })}
       </ul>
       {/* Loadmore Button */}
-      <div className="load-more flex justify-center">
+      <div className="load-more hidden">
         <a
           onClick={() => dispatch({ type: "FETCH_CARS" })}
           role="button"
