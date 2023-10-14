@@ -49,7 +49,7 @@ export const carsApi = createApi({
      * @returns {Car} - The car object.
      */
     getCarsByBrand: builder.query<Car, string>({
-      query: (brand) => `cars?brand=${brand}`,
+      query: (brand) => `cars?brand_like=${brand}`,
     }),
 
     /**

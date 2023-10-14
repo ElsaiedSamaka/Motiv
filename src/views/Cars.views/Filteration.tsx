@@ -1,5 +1,12 @@
 import classNames from "classnames";
-import { useState } from "react";
+import {
+  useGetBrandsByNameQuery,
+  useGetBrandsQuery,
+} from "core/services/brands.service";
+import { useGetCarsByBrandQuery } from "core/services/cars.service";
+import { useEffect, useState } from "react";
+import { Car } from "core/models";
+import { useDebounce } from "core/hooks";
 
 const Filteration = () => {
   return (
@@ -9,176 +16,184 @@ const Filteration = () => {
     </div>
   );
 };
+
 const FilterBy = () => {
-  const [showFilteration, setShowFilteration] = useState<boolean>(false);
-  const [showFilterationByType, setShowFilterationByType] =
-    useState<boolean>(false);
-  const [selectedFilter, setSelectedFilter] = useState<string>("New");
-  const [selectedManufacturer, setSelectedManufacturer] =
-    useState<string>("Toyata");
-  function toggleFilteration() {
-    setShowFilteration(!showFilteration);
-  }
-  function toggleFilterationByType() {
-    setShowFilterationByType(!showFilterationByType);
-  }
-  function handleFilterSelection(selected: string) {
-    setSelectedFilter(selected);
-    toggleFilteration();
-  }
-  function handleManufactorSelection(selected: string) {
-    setSelectedManufacturer(selected);
-    toggleFilterationByType();
-  }
   return (
     <div className="flex space-x-2">
-      {/* new filteration DDL */}
-      <div className="new-filter relative">
-        <button
-          onClick={toggleFilteration}
-          id="showFilterationButton"
-          className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
-          type="button"
+      <FilterByDate />
+      <FilterByBrand />
+    </div>
+  );
+};
+
+const FilterByDate = () => {
+  const [isDateFilterDisplayed, setDateFilterDisplay] = useState(false);
+  const [selectedOption, setSelecteOption] = useState("New");
+
+  function toggleFilterDisplay() {
+    setDateFilterDisplay(!isDateFilterDisplayed);
+  }
+  function handleFilterSelection(selected) {
+    setSelecteOption(selected);
+    toggleFilterDisplay();
+  }
+
+  return (
+    <div className="new-filter relative">
+      <button
+        onClick={toggleFilterDisplay}
+        id="showFilterationButton"
+        className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
+        type="button"
+      >
+        <span className="lg:text-lg">{selectedOption}</span>
+        <svg
+          width={24}
+          height={24}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <span className="lg:text-lg">{selectedFilter}</span>
-          <svg
-            width={24}
-            height={24}
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M17.9142 8C18.4592 8 18.7622 8.63046 18.4218 9.05605L12.8408 16.0322C12.5806 16.3575 12.0859 16.3575 11.8257 16.0322L6.24478 9.05605C5.9043 8.63046 6.20731 8 6.75234 8L17.9142 8Z"
-              fill="#B4B4C6"
-            />
-          </svg>
-        </button>
-        {/* Dropdown menu */}
-        <div
-          id="dropdownHover"
-          className={classNames(
-            `${
-              showFilteration ? "block" : "hidden"
-            } absolute top-14 z-10 bg-white divide-y divide-gray-100 rounded-2xl shadow-md w-44`
-          )}
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M17.9142 8C18.4592 8 18.7622 8.63046 18.4218 9.05605L12.8408 16.0322C12.5806 16.3575 12.0859 16.3575 11.8257 16.0322L6.24478 9.05605C5.9043 8.63046 6.20731 8 6.75234 8L17.9142 8Z"
+            fill="#B4B4C6"
+          />
+        </svg>
+      </button>
+      <div
+        id="dropdownHover"
+        className={classNames(
+          `${
+            isDateFilterDisplayed ? "block" : "hidden"
+          } absolute top-14 z-10 bg-white divide-y divide-gray-100 rounded-2xl shadow-md w-44`
+        )}
+      >
+        <ul
+          className="py-2 text-sm text-gray-400 font-semibold"
+          aria-labelledby="dropdownHoverButton"
         >
-          <ul
-            className="py-2 text-sm text-gray-400 font-semibold"
-            aria-labelledby="dropdownHoverButton"
-          >
-            <li>
-              <a
-                onClick={() => handleFilterSelection("New")}
-                className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
-              >
-                New
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={() => handleFilterSelection("Highest price")}
-                className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
-              >
-                Highest price
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={() => handleFilterSelection("Lowest price")}
-                className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
-              >
-                Lowest price
-              </a>
-            </li>
-          </ul>
-        </div>
+          <li>
+            <a
+              onClick={() => handleFilterSelection("New")}
+              className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+            >
+              New
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => handleFilterSelection("Highest price")}
+              className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+            >
+              Highest price
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => handleFilterSelection("Lowest price")}
+              className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+            >
+              Lowest price
+            </a>
+          </li>
+        </ul>
       </div>
-      {/* new filteration DDL */}
-      {/* manufactor filteration DDL */}
-      <div className="manufactor-filter relative">
-        <button
-          onClick={toggleFilterationByType}
-          id="manufacturButton"
-          className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
-          type="button"
+    </div>
+  );
+};
+
+const FilterByBrand = () => {
+  const [isBrandFilterDisplayed, setBrandFilterDisplay] = useState(false);
+  const [selectedBrand, setSelectedBrand] = useState("All");
+  const [brand, setBrand] = useState("");
+  // API calls
+  const {
+    data: brands = [],
+    isLoading: loadingBrands,
+    isSuccess: getBrandsSuccess,
+    isError: errorGettingBrands,
+  } = useGetBrandsByNameQuery(brand);
+
+  function toggleBrandFilterDisplay() {
+    setBrandFilterDisplay(!isBrandFilterDisplayed);
+  }
+  function handleSearchOverBrands(e) {
+    const brandName = e.target.value;
+    setBrand(brandName);
+  }
+  function handleBrandSelection(selected) {
+    setSelectedBrand(selected);
+    setBrand(selected);
+    toggleBrandFilterDisplay();
+  }
+  return (
+    <div className="manufactor-filter relative">
+      <button
+        onClick={toggleBrandFilterDisplay}
+        id="manufacturButton"
+        className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
+        type="button"
+      >
+        <span className="lg:text-lg">{selectedBrand}</span>
+        <svg
+          width={24}
+          height={24}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <span className="lg:text-lg">{selectedManufacturer}</span>
-          <svg
-            width={24}
-            height={24}
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M17.9142 8C18.4592 8 18.7622 8.63046 18.4218 9.05605L12.8408 16.0322C12.5806 16.3575 12.0859 16.3575 11.8257 16.0322L6.24478 9.05605C5.9043 8.63046 6.20731 8 6.75234 8L17.9142 8Z"
-              fill="#B4B4C6"
-            />
-          </svg>
-        </button>
-        {/* Dropdown menu */}
-        <div
-          id="manufacturDropdown"
-          className={classNames(
-            `${
-              showFilterationByType ? "block" : "hidden"
-            } absolute top-14 z-10 bg-white divide-y divide-gray-100 rounded-2xl shadow-md w-52`
-          )}
-        >
-          <div className="flex justify-between my-2 p-2">
-            <input
-              className="p-2 rounded-xl w-full border focus:outline-gray-300"
-              type="search"
-              autoFocus={true}
-              placeholder="Search..."
-            />
-          </div>
-          <ul
-            className="py-2 text-sm text-gray-400 font-semibold h-36 overflow-y-scroll"
-            aria-labelledby="dropdownHoverButton"
-          >
-            <li>
-              <a
-                onClick={() => handleManufactorSelection("BMW")}
-                className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
-              >
-                BMW
-              </a>
-            </li>
-            <li>
-              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                Mereceds
-              </a>
-            </li>
-            <li>
-              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                WolksDawln
-              </a>
-            </li>
-            <li>
-              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                BMW
-              </a>
-            </li>
-            <li>
-              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                Mereceds
-              </a>
-            </li>
-            <li>
-              <a className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer">
-                WolksDawln
-              </a>
-            </li>
-          </ul>
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M17.9142 8C18.4592 8 18.7622 8.63046 18.4218 9.05605L12.8408 16.0322C12.5806 16.3575 12.0859 16.3575 11.8257 16.0322L6.24478 9.05605C5.9043 8.63046 6.20731 8 6.75234 8L17.9142 8Z"
+            fill="#B4B4C6"
+          />
+        </svg>
+      </button>
+      {/* Dropdown menu */}
+      <div
+        id="manufacturDropdown"
+        className={classNames(
+          `${
+            isBrandFilterDisplayed ? "block" : "hidden"
+          } absolute top-14 z-10 bg-white divide-y divide-gray-100 rounded-2xl shadow-md w-52`
+        )}
+      >
+        <div className="flex justify-between my-2 p-2">
+          <input
+            onChange={(e) => handleSearchOverBrands(e)}
+            className="p-2 rounded-xl w-full border focus:outline-gray-300"
+            type="search"
+            autoFocus={true}
+            placeholder="Search..."
+          />
         </div>
+        <ul
+          className="py-2 text-sm text-gray-400 font-semibold h-36 overflow-y-scroll"
+          aria-labelledby="dropdownHoverButton"
+        >
+          {loadingBrands && <div>loading</div>}
+          {errorGettingBrands && <div>Some thing went wrong </div>}
+          {getBrandsSuccess &&
+            brands.map((item, i) => {
+              return (
+                <li key={item.id}>
+                  <a
+                    onClick={() => handleBrandSelection(item.name)}
+                    className="block px-4 py-2 hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              );
+            })}
+          {brands.length == 0 && (
+            <div className="text-center">No Results Found</div>
+          )}
+        </ul>
       </div>
-      {/* manufactor filteration DDL */}
     </div>
   );
 };
@@ -194,6 +209,7 @@ const FilterationOptions = () => {
         onClick={toggleDateView}
         className=" bg-white rounded-full shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300 xs:p-2 lg:p-4"
       >
+        {/* grid view */}
         {dataView === "grid" && (
           <svg
             className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
@@ -227,6 +243,8 @@ const FilterationOptions = () => {
             />
           </svg>
         )}
+        {/* grid view */}
+        {/* list view */}
         {dataView === "list" && (
           <svg
             className="lg:w-6 lg:h-6 xs:w-5 xs:h-5 text-gray-500"
@@ -244,6 +262,7 @@ const FilterationOptions = () => {
             />
           </svg>
         )}
+        {/* list view */}
       </span>
       <span className="bg-[#A162F7] rounded-full hover:cursor-pointer hover:bg-[#955ce6] transition-colors duration-300 xs:p-2 lg:p-4">
         <svg

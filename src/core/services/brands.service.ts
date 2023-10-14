@@ -6,7 +6,6 @@ const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 // Define a service using a base URL and expected endpoints
 export const brandsApi = createApi({
   reducerPath: "brandApi",
-  tagTypes: ["Brands"],
   baseQuery: fetchBaseQuery({ baseUrl: base_url }),
 
   /**
@@ -21,7 +20,6 @@ export const brandsApi = createApi({
      */
     getBrands: builder.query<Brand[], void>({
       query: () => `brands`,
-      providesTags: ["Brands"],
     }),
 
     /**
@@ -29,8 +27,8 @@ export const brandsApi = createApi({
      * @param {string} name - The name of the brand.
      * @returns {Brand} - The brand object.
      */
-    getBrandsByName: builder.query<Car, string>({
-      query: (name) => `brand?name=${name}`,
+    getBrandsByName: builder.query<Brand[], string>({
+      query: (name) => `brands?name_like=${name}`,
     }),
   }),
 });
