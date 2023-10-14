@@ -15,7 +15,7 @@ const ProductDetails = () => {
       {isLoading && <div>...Loading</div>}
       {isFetching && <div>...Fetching</div>}
       {isError && <div>Something went wrong</div>}
-      {isSuccess && <div>{JSON.stringify(data, null, 2)}</div>}
+      {isSuccess && <pre>{JSON.stringify(data, null, 2)}</pre>}
     </section>
   );
 };
