@@ -44,7 +44,7 @@ const FilterByDate = () => {
       <button
         onClick={toggleFilterDisplay}
         id="showFilterationButton"
-        className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
+        className="bg-white text-light-secondary hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
         type="button"
       >
         <span className="lg:text-lg">{selectedOption}</span>
@@ -146,7 +146,7 @@ const FilterByBrand = () => {
       <button
         onClick={toggleBrandFilterDisplay}
         id="manufacturButton"
-        className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
+        className="bg-white text-light-secondary hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
         type="button"
       >
         <span className="lg:text-lg">
@@ -288,7 +288,7 @@ const FilterationOptions = () => {
         )}
         {/* list view */}
       </span>
-      <span className="bg-[#A162F7] rounded-full hover:cursor-pointer hover:bg-[#955ce6] transition-colors duration-300 mx-1 xs:p-2 lg:p-4">
+      <span className="bg-light-primary rounded-full hover:cursor-pointer hover:bg-light-primary transition-colors duration-300 mx-1 xs:p-2 lg:p-4">
         <svg
           className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
           viewBox="0 0 24 24"

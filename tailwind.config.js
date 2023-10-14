@@ -12,16 +12,16 @@ module.exports = {
     extend: {
       colors: {
         dark: {
-          primary: "#194638",
-          secondary: "#c3beb6",
-          accent: "#181a1b",
+          primary: "#A162F7",
+          secondary: "#5F6165",
+          accent: "#f5f5f5",
           white: "#fff",
         },
         light: {
-          primary: "#c9ecde",
-          secondary: "#2d3748",
-          accent: "#009f60",
-          black: "#000",
+          primary: "#A162F7",
+          secondary: "#5F6165",
+          accent: "#f5f5f5",
+          white: "#fff",
         },
       },
       screens: {

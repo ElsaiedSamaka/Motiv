@@ -6,7 +6,7 @@ const Statistics = () => {
       <ChartCard
         chartOptions={{
           title: "Energy",
-          bgColor: "bg-[#a162f7]",
+          bgColor: "bg-light-primary",
           textColor: "#fff",
           strokeColor: "#fff",
         }}
