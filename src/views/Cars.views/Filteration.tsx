@@ -42,9 +42,10 @@ const FilterByDate = () => {
   return (
     <div className="new-filter relative mx-2">
       <button
+        disabled
         onClick={toggleFilterDisplay}
         id="showFilterationButton"
-        className="bg-white text-light-secondary hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
+        className="bg-white text-light-secondary hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10 disabled:hover:cursor-not-allowed"
         type="button"
       >
         <span className="lg:text-lg">{selectedOption}</span>
@@ -145,14 +146,15 @@ const FilterByBrand = () => {
     <div className="manufactor-filter relative mx-1">
       <button
         onClick={toggleBrandFilterDisplay}
-        id="manufacturButton"
-        className="bg-white text-light-secondary hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
+        id="brandButton"
+        className="bg-white text-light-secondary hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 inline-flex items-center justify-between lg:space-x-10"
         type="button"
       >
-        <span className="lg:text-lg">
+        <span className="lg:text-lg ">
           {selectedBrand == "" ? "All" : selectedBrand}
         </span>
         <svg
+          className="mx-auto"
           width={24}
           height={24}
           viewBox="0 0 24 24"
