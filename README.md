@@ -13,8 +13,31 @@ use `redux-persist` to save state between browser refreshes.
 - TailwindCss
 - Yup
 
+## How to run 
+Clone this repo 
+
+```sh
+git clone 
+```
+Open cloned repo on code editor [i.e Vs code]
+Then open the terminal and run following command 
+
+```sh
+json-server --watch .\db.json --port 4000
+```
+
+U have to install Json-server on your machine or just use 
+
+```sh
+npx json-server --watch .\db.json --port 4000
+```
+
 Then start the NextJs app in developer mode by using:
 
 ```sh
 npm run dev
+```
+or
+```sh
+pnpm run dev
 ```
