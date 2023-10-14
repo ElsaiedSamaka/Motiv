@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Anchor from "shared/Common/Anchor/Anchor";
-import { useRouter, withRouter } from "next/router";
+import { useRouter } from "next/router";
 import useTranslation from "core/hooks/useTranslation";
 
 const Aside = () => {
@@ -222,4 +222,4 @@ const Aside = () => {
   );
 };
 
-export default withRouter(Aside);
+export default Aside;

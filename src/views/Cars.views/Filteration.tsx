@@ -40,7 +40,7 @@ const FilterByDate = () => {
   }
 
   return (
-    <div className="new-filter relative">
+    <div className="new-filter relative mx-2">
       <button
         onClick={toggleFilterDisplay}
         id="showFilterationButton"
@@ -142,7 +142,7 @@ const FilterByBrand = () => {
   }
 
   return (
-    <div className="manufactor-filter relative">
+    <div className="manufactor-filter relative mx-1">
       <button
         onClick={toggleBrandFilterDisplay}
         id="manufacturButton"
@@ -232,6 +232,7 @@ const FilterationOptions = () => {
         onClick={toggleDateView}
         className=" bg-white rounded-full shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300 mx-1 xs:p-2 lg:p-4"
       >
+        {/* TODO: Implement toggle grid list view */}
         {/* grid view */}
         {dataView === "grid" && (
           <svg

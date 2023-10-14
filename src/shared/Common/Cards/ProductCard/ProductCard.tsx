@@ -40,7 +40,7 @@ const ProductCard = ({ item }) => {
             className="product-img object-scale-down max-w-md mx-auto max-h-32  h-auto w-auto transition-all duration-500 cursor-pointer filter grayscale hover:grayscale-0 "
             alt={item.name}
           />
-          <div className="product-details my-2 flex flex-wrap-reverse justify-between items-center text-[#72767C] ">
+          <div className="product-details my-2 flex  justify-between items-center text-[#72767C] ">
             {/* left content */}
             <div className="space-x-2 xs:text-sm sm:text-md md:text-md lg:text-lg ">
               <div className="inline-flex flex-wrap items-center justify-center space-x-1">
@@ -78,7 +78,7 @@ const ProductCard = ({ item }) => {
             </div>
             {/* left content */}
             {/* right content */}
-            <div className="md:text-sm lg:text-lg ml-auto">
+            <div className="md:text-sm lg:text-lg ltr:ml-auto">
               <span className="font-semibold text-black">
                 ${item.price ? item.price : "N/A"}
               </span>
