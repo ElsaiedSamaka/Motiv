@@ -1,13 +1,9 @@
 import classNames from "classnames";
-import {
-  useGetBrandsByNameQuery,
-  useGetBrandsQuery,
-} from "core/services/brands.service";
+import { useGetBrandsByNameQuery } from "core/services/brands.service";
 import { useGetCarsByBrandQuery } from "core/services/cars.service";
 import { useEffect, useState } from "react";
-import { Car } from "core/models";
-import { useDebounce } from "core/hooks";
 import { useCarsContext } from "core/context/CarsContext";
+import { useViewContext } from "core/context/GridListContext";
 
 const Filteration = () => {
   return (
@@ -224,10 +220,9 @@ const FilterByBrand = () => {
 };
 
 const FilterationOptions = () => {
-  const [dataView, setDataView] = useState<"grid" | "list">("grid");
-  function toggleDateView() {
-    setDataView(dataView === "grid" ? "list" : "grid");
-  }
+  const { state, selectView } = useViewContext();
+  function toggleDateView() {}
+
   return (
     <div className="flex items-center space-x-2 ltr:ml-auto rtl:mr-auto">
       <span
@@ -236,7 +231,7 @@ const FilterationOptions = () => {
       >
         {/* TODO: Implement toggle grid list view */}
         {/* grid view */}
-        {dataView === "grid" && (
+        {state.selectedView === "grid" && (
           <svg
             className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
             viewBox="0 0 24 24"
@@ -271,7 +266,7 @@ const FilterationOptions = () => {
         )}
         {/* grid view */}
         {/* list view */}
-        {dataView === "list" && (
+        {state.selectedView === "list" && (
           <svg
             className="lg:w-6 lg:h-6 xs:w-5 xs:h-5 text-gray-500"
             fill="none"
