@@ -1,11 +1,22 @@
 import { useCarsContext } from "core/context/CarsContext";
+import useTranslation from "core/hooks/useTranslation";
 import { useGetCarsQuery } from "core/services/cars.service";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { CarsLayout, Grid, PlaceholderCard, RootLayout, Title } from "shared";
+import {
+  CarsLayout,
+  Grid,
+  LanguageSwitcher,
+  PlaceholderCard,
+  RootLayout,
+  Title,
+} from "shared";
 import { Filteration } from "views";
 
 const Cars = () => {
+  const { locale } = useRouter();
+  const { t } = useTranslation(locale);
   // State
   const { state: carsState, dispatch } = useCarsContext();
   // API call
@@ -65,14 +76,14 @@ const Cars = () => {
   return (
     <>
       <Head>
-        <title>Innovadigits | Cars</title>
+        <title>{t("cars.title")}</title>
         <meta
           name="description"
           content="Next.js 12 + TailwindCSS + ReduxToolKit + RTK Qurey"
         />
       </Head>
       <section className="cars space-y-5 ">
-        <Title title="Booking" />
+        <Title title={t("cars.name")} />
         <Filteration />
         {carsState.isSuccess && (
           <Grid data={carsState.data} dispatch={dispatch} />

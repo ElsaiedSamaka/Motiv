@@ -227,10 +227,10 @@ const FilterationOptions = () => {
     setDataView(dataView === "grid" ? "list" : "grid");
   }
   return (
-    <div className="flex items-center space-x-2 ml-auto">
+    <div className="flex items-center space-x-2 ltr:ml-auto rtl:mr-auto">
       <span
         onClick={toggleDateView}
-        className=" bg-white rounded-full shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300 xs:p-2 lg:p-4"
+        className=" bg-white rounded-full shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300 mx-1 xs:p-2 lg:p-4"
       >
         {/* grid view */}
         {dataView === "grid" && (
@@ -287,7 +287,7 @@ const FilterationOptions = () => {
         )}
         {/* list view */}
       </span>
-      <span className="bg-[#A162F7] rounded-full hover:cursor-pointer hover:bg-[#955ce6] transition-colors duration-300 xs:p-2 lg:p-4">
+      <span className="bg-[#A162F7] rounded-full hover:cursor-pointer hover:bg-[#955ce6] transition-colors duration-300 mx-1 xs:p-2 lg:p-4">
         <svg
           className="lg:w-6 lg:h-6 xs:w-5 xs:h-5"
           viewBox="0 0 24 24"

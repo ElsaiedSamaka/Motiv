@@ -1,6 +1,12 @@
+import useTranslation from "core/hooks/useTranslation";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import LanguageSwitcher from "shared/Common/LanguageSwitcher/LanguageSwitcher";
 
 const Navbar = () => {
+  const { locale } = useRouter();
+  const { t } = useTranslation(locale);
+
   return (
     <nav className="nav-bar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 z-50 bg-white md:ml-56 lg:ml-64">
       <div className="flex flex-wrap justify-between items-center ">
@@ -65,7 +71,7 @@ const Navbar = () => {
                 name="email"
                 id="topbar-search"
                 className="bg-[#F5F4F6] text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 placeholder:font-semibold placeholder:text-[#7C7C8D]"
-                placeholder="Search or type"
+                placeholder={t("navbar.search")}
               />
             </div>
           </form>
@@ -73,14 +79,17 @@ const Navbar = () => {
         </div>
         {/* left content */}
         {/* right content */}
-        <div className="flex items-center lg:order-2">
+        <div className="flex items-center justify-end lg:order-2">
+          {/* lang selector */}
+          <LanguageSwitcher />
+          {/* lang selector */}
           {/* Notifications */}
           <div className="notifications">
             {/* notification icon */}
             <button
               type="button"
               data-dropdown-toggle="notification-dropdown"
-              className="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 :text-gray-400 :hover:text-white :hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 :focus:ring-gray-600"
+              className="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-300"
             >
               <span className="sr-only">View notifications</span>
               {/* Bell icon */}
@@ -299,8 +308,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-}
+};
 
-export default Navbar
-
-     
+export default Navbar;

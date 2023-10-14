@@ -1,5 +1,5 @@
 {
-  "name": "Innovadigits",
+  "name": "innovadigits",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -25,9 +25,7 @@
     "react-redux": "^7.2.6",
     "redux": "4.0.5",
     "redux-logger": "^3.0.6",
-    "redux-persist": "6.0.0",
-    "swr": "^2.2.4",
-    "yup": "^0.32.11"
+    "redux-persist": "6.0.0"
   },
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",

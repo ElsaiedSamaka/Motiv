@@ -13,20 +13,22 @@ import ProductCard from "./Common/Cards/ProductCard/ProductCard";
 import CircularChart from "./Common/Charts/CircularChart";
 import ChartCard from "./Common/Cards/ChartCard/ChartCard";
 import PlaceholderCard from "./Common/Cards/PlacholderCard/PlaceholderCard";
+import LanguageSwitcher from "./Common/LanguageSwitcher/LanguageSwitcher";
 export {
   DashboardLayout,
   RootLayout,
   SettingsLayout,
   CarsLayout,
-  Navbar,
-  Aside,
   ProductCard,
   ChartCard,
   PlaceholderCard,
+  CircularChart,
+  LanguageSwitcher,
+  Navbar,
+  Aside,
   Tabs,
   Form,
   Grid,
   Anchor,
   Title,
-  CircularChart,
 };

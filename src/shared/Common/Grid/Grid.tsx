@@ -1,8 +1,6 @@
-import Link from "next/link";
 import React from "react";
 import ProductCard from "../Cards/ProductCard/ProductCard";
 import { Car } from "core/models";
-import PlaceholderCard from "../Cards/PlacholderCard/PlaceholderCard";
 
 const Grid = ({ data, dispatch }) => {
   return (

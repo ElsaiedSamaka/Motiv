@@ -1,7 +1,12 @@
 import Link from "next/link";
 import Anchor from "shared/Common/Anchor/Anchor";
+import { useRouter, withRouter } from "next/router";
+import useTranslation from "core/hooks/useTranslation";
 
 const Aside = () => {
+  const { locale } = useRouter();
+  const { t } = useTranslation(locale);
+
   return (
     <aside
       className="fixed top-0 left-0 z-50 px-4 h-screen transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 md:w-56 lg:w-64"
@@ -10,7 +15,10 @@ const Aside = () => {
     >
       <div className="overflow-y-auto py-5 px-3 h-full bg-white flex flex-col gap-y-5">
         {/* logo and title */}
-        <Link href="/" className="flex items-center justify-between mr-4">
+        <Link
+          href="/dashboard"
+          className="flex items-center justify-between mr-4"
+        >
           <svg
             width="109"
             height="31"
@@ -104,7 +112,7 @@ const Aside = () => {
                       fill="#5F6165"
                     />
                   </svg>
-                  <span className="ml-3">Dashboard</span>
+                  <span className="ml-3">{t("aside.dashboard")}</span>
                 </div>
               </div>
             </Anchor>
@@ -135,7 +143,9 @@ const Aside = () => {
                     fill="#72767C"
                   />
                 </svg>
-                <span className="flex-1 ml-3 whitespace-nowrap">Cars</span>
+                <span className="flex-1 ml-3 whitespace-nowrap">
+                  {t("aside.cars")}
+                </span>
               </div>
             </Anchor>
           </li>
@@ -171,7 +181,7 @@ const Aside = () => {
                       fill="#72767C"
                     />
                   </svg>
-                  <span className="ml-3">Settings</span>
+                  <span className="ml-3">{t("aside.settings")}</span>
                 </div>
               </div>
             </Anchor>
@@ -200,7 +210,7 @@ const Aside = () => {
                       fill="#72767C"
                     />
                   </svg>
-                  <span className="ml-3">Log out</span>
+                  <span className="ml-3">{t("aside.logout")}</span>
                 </div>
               </div>
             </Anchor>
@@ -212,4 +222,4 @@ const Aside = () => {
   );
 };
 
-export default Aside;
+export default withRouter(Aside);
