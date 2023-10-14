@@ -40,7 +40,6 @@ const carsReducer = (state, action) => {
         isFetching: false,
       };
     case "FETCH_CARS_BY_BRAND":
-      console.log("FETCH_CARS_BY_BRAND [payload]", action.payload);
       return {
         ...state,
         data: action.payload,

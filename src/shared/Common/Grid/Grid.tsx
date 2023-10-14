@@ -11,6 +11,11 @@ const Grid = ({ data, dispatch }) => {
         {data.map((item: Car, i) => {
           return <ProductCard key={item.id} item={item} />;
         })}
+        {data.length === 0 && (
+          <div className="col-span-full text-center text-4xl">
+            No Results Found
+          </div>
+        )}
       </ul>
       {/* Loadmore Button */}
       <div className="load-more hidden">

@@ -149,7 +149,9 @@ const FilterByBrand = () => {
         className="bg-white text-[#5F6165] hover:bg-white/50 focus:ring-2 focus:outline-none focus:ring-black/10 hover:font-semibold font-semibold rounded-3xl text-sm xs:px-4 md:px-8 lg:px-10  py-2.5 text-center inline-flex items-center  lg:space-x-10"
         type="button"
       >
-        <span className="lg:text-lg">{selectedBrand}</span>
+        <span className="lg:text-lg">
+          {selectedBrand == "" ? "All" : selectedBrand}
+        </span>
         <svg
           width={24}
           height={24}
@@ -189,6 +191,14 @@ const FilterByBrand = () => {
         >
           {loadingBrands && <div>loading</div>}
           {errorGettingBrands && <div>Some thing went wrong </div>}
+          <li>
+            <a
+              onClick={() => handleBrandSelection("")}
+              className="block px-4 py-2 border-b hover:bg-gray-100 hover:text-black hover:cursor-pointer"
+            >
+              All
+            </a>
+          </li>
           {getBrandsSuccess &&
             brands.map((item, i) => {
               return (
