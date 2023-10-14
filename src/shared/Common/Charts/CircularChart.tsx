@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 // ApexCharts wont work for server component by default so we have to use dynamic import in order
 // to lazely load it
 import dynamic from "next/dynamic";
+import getRandomArbitrary from "core/helper/getRandomArbitrary";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const CircularChart = ({ title, textColor, strokeColor }) => {
-  const [series, setStateSeries] = useState([9000]);
+  const randomValToStartWith = getRandomArbitrary(10, 1000);
+  const [series, setStateSeries] = useState([randomValToStartWith]);
   const [options] = useState({
     chart: {
       type: "radialBar",
