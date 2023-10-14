@@ -4,7 +4,7 @@ import Trophy from "/public/images/dashboard-page/trophy.png";
 import DesignerDesktop from "/public/images/dashboard-page/designer-descktop.png";
 const Features = () => {
   return (
-    <div className="grid grid-cols-12 gap-4 mb-4 font-medium">
+    <div className="grid grid-cols-12 gap-3 mb-4 font-medium">
       <div className="bg-[#FFE0BA] col-span-full lg:col-span-7 inline-flex items-center justify-between rounded-md py-3 px-6 ">
         <div className="flex-col justify-around space-y-2 leading-relaxed ">
           <em className="text-3xl font-['ABeeZee']">Apply for a car loan !</em>
@@ -22,7 +22,7 @@ const Features = () => {
           <Image src={DesignerDesktop} alt="designer-desktop" />
         </div>
       </div>
-      <div className="col-span-full lg:col-span-5 flex justify-between space-x-3 w-full font-['ABeeZee']">
+      <div className="col-span-full lg:col-span-5 flex justify-between space-x-2 w-full font-['ABeeZee']">
         <div className="bg-[#0F2837]  text-white  rounded-md p-6 min-w-[50%]">
           <Image className="float-right w-32 h-32" src={Trophy} alt="trophy" />
           <p className="text-xl mt-5">
@@ -57,4 +57,3 @@ const Features = () => {
 };
 
 export default Features;
-// bg-[#6E1946]
