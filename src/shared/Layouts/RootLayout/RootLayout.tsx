@@ -7,7 +7,9 @@ const RootLayout = ({ children }) => {
   return (
     <section dir={getDirection(locale)} className="root-layout">
       <Header />
-      <section className="md:ml-56 lg:ml-64">{children}</section>
+      <section className="ltr:md:ml-56 ltr:lg:ml-64 rtl:md:mr-56 rtl:lg:mr-64">
+        {children}
+      </section>
     </section>
   );
 };

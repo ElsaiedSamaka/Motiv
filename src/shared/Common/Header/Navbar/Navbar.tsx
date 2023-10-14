@@ -8,7 +8,7 @@ const Navbar = () => {
   const { t } = useTranslation(locale);
 
   return (
-    <nav className="nav-bar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 z-50 bg-white md:ml-56 lg:ml-64">
+    <nav className="nav-bar border-b border-gray-200 px-4 py-2 fixed left-0 right-0 top-0 z-50 bg-white ltr:md:ml-56 ltr:lg:ml-64 rtl:md:mr-56 rtl:lg:mr-64">
       <div className="flex flex-wrap justify-between items-center ">
         {/* left content */}
         <div className="search-control flex justify-start items-center">

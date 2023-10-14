@@ -9,7 +9,7 @@ const Aside = () => {
 
   return (
     <aside
-      className="fixed top-0 left-0 z-50 px-4 h-screen transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 md:w-56 lg:w-64"
+      className="fixed top-0 ltr:left-0 rtl:right-0 z-50 px-4 h-screen transition-transform -translate-x-full bg-white ltr:border-r rtl:border-l border-gray-200 md:translate-x-0 md:w-56 lg:w-64"
       aria-label="Sidenav"
       id="drawer-navigation"
     >
